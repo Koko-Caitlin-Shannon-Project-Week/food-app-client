@@ -20,42 +20,47 @@
        <div>
         <p>Monday</p>        
         </div>
-       <section></section>
+       <section class= "monday"></section>
      </div>
      <div>
         <p>Tuesday</p>        
         </div>
-       <section></section>
+       <section class="tuesday"></section>
      </div>
      <div>
         <p>Wednesday</p>        
         </div>
-       <section></section>
+       <section class= "wednesday"></section>
      </div>
      <div>
         <p>Thursday</p>        
         </div>
-       <section></section>
+       <section class= "thursday"></section>
      </div>
      <div>
         <p>Friday</p>        
         </div>
-       <section></section>
+       <section class= "friday"></section>
      </div>
      <div>
         <p>Saturday</p>        
         </div>
-       <section></section>
+       <section class="saturday"></section>
      </div>
      <div>
         <p>Sunday</p>        
         </div>
-       <section></section>
+       <section class = "sunday"></section>
      </div>
    </div>
   </script>
-  <script type="text/x-handlebars-template" id="day-view-template">
-   
+  <script type="text/x-handlebars-template" id="recipe-view-template">
+    <div>
+       <div>
+        <section class="recipe-list"></section>
+
+       </div>
+      </div>
   </script>
   <script type="text/x-handlebars-template" id="recipe-view-template">
     
@@ -67,20 +72,37 @@
       <div class="header-content">
          
    <nav>
+
     </nav>
   </header>
   <main class="main theme">
-    <section class="login-view">
-   
-    </section>
+    <div>
+        <section class="login-view">
 
-    <section class="week-view container">
+            <form class="create-user">
+                <h2>Sign Up/Login</h2>
+                <input name="user" type="text" placeholder="input user name">
+                <input name="password" type="text" placeholder="enter password">
+            </form>
+   
+          </section>
+    </div>
+    <div>
+        <section class="week-view container">
+
  
-    </section>
-
-    <section class="recipe-view container" >
+          </section>
+    </div>
+    <div>
+        <section class="recipe-view container" >
+            <form class="ingredients">
+                <input>
+                <input>
+                <input>
+              </form>
    
-    </section>
+          </section>
+    </div>
 
   </main>
   <footer class="footer theme">
