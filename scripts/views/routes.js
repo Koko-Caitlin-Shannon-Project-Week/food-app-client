@@ -1,7 +1,6 @@
 'use strict'
 
-page('/',
-(ctx,next)=>app.Food.fetchUsers().initIndexPage());
+page('/', (ctx,next)=>app.Food.fetchUsers(initLoginPage));
 
 page('/calendar', ctx => app.foodView.initWeekView(ctx));
 
