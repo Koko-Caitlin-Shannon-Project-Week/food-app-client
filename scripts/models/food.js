@@ -20,13 +20,16 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
   Food.loginSubmit = event => {
     event.preventDefault();
-    let usernames = Food.users.username;
-    let passwords = Food.users.password;
-    if (usernames.includes(event.target.user.value)) {
-      if (passwords.includes(event.target.password.value)) {
-        
+
+    for (let i=0; i<Food.users.length; i++) {
+      if (event.target.user.value === Food.users.username[i]) {
+        if (event.target.password.value === Food.users.password[i]) {
+          Food.users[i].fetchCalendar();
+        } else {
+          alert('Incorrect Login');
+        }  
       } else {
-        
+        Food.newUser();
       }
     }
   }
