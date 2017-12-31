@@ -10,6 +10,7 @@
     <link href="./styles/base.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/modules.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
     <script id="error-template" type="text/x-handlebars-template">
 	   <h3>Sorry but there was an error</h3>
 	   <p>{{status}}: {{statusText}}</p>
@@ -47,15 +48,16 @@
 
 <body>
     <header class="theme">
-
+        <a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50"></a>
+        <h1>Title</h1>
     </header>
     <main class="main theme">
         <div>
             <section class="login-view container">
                 <form class="create-user">
                     <h2>Sign Up/Login</h2>
-                    <input name="user" id="user" placeholder="input user name" type="text" value="">
-                    <input name="password" id="password" placeholder="enter password" type="text" value="">
+                        <input name="user" id="user" placeholder="User Name" type="text" value="">
+                        <input name="password" id="password" placeholder="Password" type="text" value="">
                 </form>
                 <button type="submit">Login</button>
             </section>
@@ -94,12 +96,13 @@
         </div>
         <div>
             <section class="recipe-view container">
+                <h2>Please insert ingredients</h2>
                 <form class="ingredients">
                     <input id="first-ing" placeholder="ingredient" value="">
                     <input id="second-ing" placeholder="ingredient" value="">
                     <input id="third-ing" placeholder="ingredient" value="">
                 </form>
-                <button type="submit">Find Recipe</button>
+                <button type="submit">Find Recipes</button>
             </section>
         </div>
     </main>
