@@ -1,3 +1,26 @@
-html {
-    background-color: B27C13;
+body{
+    background: #9ECC72;
+    color: #9ECC72;
+    font-family: 'Handlee', cursive;
+}
+header,
+.login-view,
+.week-view,
+.recipe-view,
+footer {
+    background: rgb(244, 247, 190);
+    border: solid 2px rgb(148, 28, 19);
+    padding: 1%;
+    margin: 2%;
+}
+h1 {
+    display: inline;
+}
+h2 {
+    padding: 1%;
+}
+
+footer {
+    position: sticky;
+    height: 3%;
 }
