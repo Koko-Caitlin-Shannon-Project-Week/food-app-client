@@ -15,7 +15,7 @@
 	   <h3>Sorry but there was an error</h3>
 	   <p>{{status}}: {{statusText}}</p>
 	</script>
-    <script id="day-view-template" type="text/x-handlebars-template">
+    <!-- <script id="day-view-template" type="text/x-handlebars-template">
 	  <div>
 	    <div>
 	      <section class= "day-view">
@@ -26,7 +26,7 @@
             <p>{{recipe}}</p>
           </div>
           <button type="submit">Modify or Replace</button>
-        </section>
+        </section> -->
 
 	</script>
     <script id="recipe-view-template" type="text/x-handlebars-template">
@@ -66,31 +66,48 @@
             <section class="week-view container">
                 <div>
                     <h2>Monday</h2>
-                    <section class="recipe-monday container"></section>
+                    <section class="recipe-monday container">
+                      <ul id="monday-steps"></ul>
+                      <ul id="monday-ingredients"></ul>
+                      <button></button></section>
+                    
                 </div>
                 <div>
                     <h2>Tuesday</h2>
-                    <section class="recipe-tuesday container"></section>
+                    <section class="recipe-tuesday container">  <ul id="tuesday-steps"></ul>
+                      <ul id="tuesday-ingredients"></ul>
+                      <button></button></section>
                 </div>
                 <div>
                     <h2>Wednesday</h2>
-                    <section class="recipe-wednesday container"></section>
+                    <section class="recipe-wednesday container">  <ul id="wednesday-steps"></ul>
+                      <ul id="wednesday-ingredients"></ul>
+                      <button></button></section>
                 </div>
                 <div>
                     <h2>Thursday</h2>
-                    <section class="recipe-thursday container"></section>
+                    <section class="recipe-thursday container">  <ul id="thursday-steps"></ul>
+                      <ul id="thursday-ingredients"></ul>
+                      <button></button></section>
                 </div>
                 <div>
                     <h2>Friday</h2>
-                    <section class="recipe-friday container"></section>
+                    <section class="recipe-friday container">  <ul id="friday-steps"></ul>
+                      <ul id= "friday-ingredients"
+                      <button></button></section>
                 </div>
                 <div>
                     <h2>Saturday</h2>
-                    <section class="recipe-saturday"></section>
+                    <section class="recipe-saturday">  <ul id="saturday-steps"></ul>
+                      <ul id= "saturday-ingredients"></ul>
+                      <button></button></section>
                 </div>
+                
                 <div>
-                    <h2>Sunday</h2>
-                    <section class="recipe-sunday"></section>
+                    <button><h2>Sunday</h2></button>
+                    <section class="recipe-sunday">  <ul id="sunday-steps"></ul>
+                      <ul id="sunday-ingredients"></ul>
+                      <button></button></section>
                 </div>
             </section>
         </div>
