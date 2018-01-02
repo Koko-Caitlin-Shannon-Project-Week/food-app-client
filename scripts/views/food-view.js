@@ -31,9 +31,8 @@ var app = app || {};
 
   foodView.initUpdate = function() {
     $('.container').hide()
-    $('.update-view').show()
-    $('#update-list').empty()
-    module.Book.all.map(book => $('#update-desc').append(book.toHtml('book-update-template')));
+    $('.day-view container').show()
+    module.Food.all.map( recipe => $('.recipeofday').append(recipe.toHtml('day-view-template')));
   }
 
   foodView.initRecipeList = function() {
@@ -47,8 +46,8 @@ var app = app || {};
         third: e.target.third.value,
 
       }
-      app.Book.create(newBook);
-      $('.input-create').val('');
+      app.Food.create(newRecipeList);
+      $('.recipe-list').val('');
     })
   }
   module.foodView = foodView;
