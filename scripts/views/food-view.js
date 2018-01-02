@@ -16,41 +16,40 @@ var app = app || {};
     $('.create-user').on('submit', app.Food.loginSubmit);
   }
 
-  // foodView.initDetailPage = function() {
-  //   $('.container').hide()
-  //   $('.detail-view').show()
-  //   $('#detail-desc').empty()
-  //   module.Book.all.map(book => $('#detail-desc').append(book.toHtml('book-detail-template')));
-  //   $('.delete-button').on('click', 'button', function() {
-  //     module.Book.destroy($(this).data('bookid'))
-  //   })
-  //   $('.update-button').on('click', 'button', function() {
-  //     module.Book.fetchOne($(this).data('bookid'), module.foodView.initUpdatePage)
-  //   })
-  // }
+  foodView.initWeekView = function() {
+    $('.container').hide()
+    $('.week-view container').show()
+    // module.foodView.all.map(book => $('#detail-desc').append(book.toHtml('book-detail-template')));
+    $('.update-button').on('click', 'button', function() {
+       module.foodView.initUpdatePage;
+    })
+  }
 
-  // foodView.initUpdatePage = function() {
-  //   $('.container').hide()
-  //   $('.update-view').show()
-  //   $('#update-list').empty()
-  //   module.Book.all.map(book => $('#update-desc').append(book.toHtml('book-update-template')));
-  // }
+  foodView.initUpdate = function() {
+    $('.container').hide()
+    $('.recipe-view container').show()
+    $('.ingredients').empty();
+    module.Food.all.map( recipe =>
+      module.Food.fetchRecipe($(this).data(),
+      $('.recipeofday').append(recipe.toHtml('day-view-template')));// need to correct syntax;
+    module.foodView.initWeekView;
 
-  // foodView.initFormPage = function() {
-  //   $('.container').hide()
-  //   $('.create-view').show();
-  //   $('.create-book').one('submit', function(e) {
-  //     e.preventDefault();
-  //     let newBook = {
-  //       title: e.target.title.value,
-  //       author: e.target.author.value,
-  //       isbn: e.target.isbn.value,
-  //       image_url: e.target.image_url.value,
-  //       description: e.target.description.value,
-  //     }
-  //     app.Book.create(newBook);
-  //     $('.input-create').val('');
-  //   })
-  // }
+  }
+
+  foodView.initRecipeList = function() {
+    $('.container').hide()
+    $('.recipe-view container').show();
+    $('.ingredients').one('submit', function(e) {
+      e.preventDefault();
+      let ingredients = {
+        first: e.target.first.value,
+        second: e.target.second.value,
+        third: e.target.third.value,
+
+      }
+      app.Food.create(newRecipeList);
+      $('.recipe-list').val('');
+    })
+  }
   module.foodView = foodView;
 })(app)
