@@ -19,20 +19,21 @@ var app = app || {};
   foodView.initWeekView = function() {
     $('.container').hide()
     $('.week-view container').show()
-    $('#detail-desc').empty()
-    module.foodView.all.map(book => $('#detail-desc').append(book.toHtml('book-detail-template')));
-    $('.delete-button').on('click', 'button', function() {
-      module.Book.destroy($(this).data('bookid'))
-    })
+    // module.foodView.all.map(book => $('#detail-desc').append(book.toHtml('book-detail-template')));
     $('.update-button').on('click', 'button', function() {
-      module.Book.fetchOne($(this).data('bookid'), module.foodView.initUpdatePage)
+       module.foodView.initUpdatePage;
     })
   }
 
   foodView.initUpdate = function() {
     $('.container').hide()
-    $('.day-view container').show()
-    module.Food.all.map( recipe => $('.recipeofday').append(recipe.toHtml('day-view-template')));
+    $('.recipe-view container').show()
+    $('.ingredients').empty();
+    module.Food.all.map( recipe =>
+      module.Food.fetchRecipe($(this).data(),
+      $('.recipeofday').append(recipe.toHtml('day-view-template')));// need to correct syntax;
+    module.foodView.initWeekView;
+
   }
 
   foodView.initRecipeList = function() {
