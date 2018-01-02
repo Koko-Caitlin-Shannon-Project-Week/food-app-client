@@ -26,6 +26,13 @@ var app = app || {};
     })
   };
 
+  foodView.showDayView = function(weekday , steps, ingredients){
+
+    $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
+
+
+  }
+
   // foodView.initUpdate = function() {
   //   $('.container').hide()
   //   $('.recipe-view container').show()
