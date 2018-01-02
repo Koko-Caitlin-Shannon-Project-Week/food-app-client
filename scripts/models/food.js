@@ -9,6 +9,24 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
 
+  Food.fecthData = () => {
+    $.getJSON('../../data/data.json')
+    .then(rawData => {
+      console.log(rawData);
+      Food.getInstructions(rawData);
+    })
+  };
+
+  Food.getInstructions = (instructions) => {
+    let steps = [];
+    let ingredients = [];
+    console.log(instructions);
+
+    steps.push(instructions[1].steps[1].step);
+    ingredients.push(instructions[1].steps[1].ingredients[1].name);
+    console.log(steps, ingredients)
+  }
+
   Food.users = [];
   Food.recipes= [];
 
