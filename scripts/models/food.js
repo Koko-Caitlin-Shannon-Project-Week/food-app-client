@@ -9,7 +9,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
 
-  Food.fecthData = () => {
+  Food.fetchData = () => {
     $.getJSON('../../data/data.json')
     .then(rawData => {
       console.log(rawData);
@@ -22,9 +22,21 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     let ingredients = [];
     console.log(instructions);
 
-    steps.push(instructions[1].steps[1].step);
-    ingredients.push(instructions[1].steps[1].ingredients[1].name);
-    console.log(steps, ingredients)
+    for(let i = 0; i < instructions.length; i++) {
+      for(let j = 0; j < instructions[i].steps.length; j++) {
+        steps.push(instructions[i].steps[j].step);
+        for(let k = 0; k < instructions[i].steps[j].ingredients.length; k++) {
+          if(!(ingredients.includes(instructions[i].steps[j].ingredients[k].name))) {
+            ingredients.push(instructions[i].steps[j].ingredients[k].name);
+          };
+        };
+      };
+    };
+
+    console.log(steps, ingredients);
+    // steps.push(instructions[1].steps[1].step);
+    // ingredients.push(instructions[1].steps[1].ingredients[1].name);
+    // console.log(steps, ingredients);
   }
 
   Food.users = [];
@@ -39,7 +51,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     $.get(`${__API_URL__}/api/v1/recipes/${ctx.params.user_id}`)
     .then(Food.loadWeek)
     .then(callback);
-  
+
 
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
 
@@ -54,9 +66,9 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   //         Food.users[i].fetchCalendar();
   //       } else {
   //         alert('Incorrect Login');
-  //       }  
+  //       }
   //     } else {
-     
+
   //     }
   //   }
   //   Food.newUser();
@@ -79,7 +91,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   //   next();
   // }
 
-  
+
 
 
   module.Food = Food;
