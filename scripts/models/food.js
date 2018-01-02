@@ -10,29 +10,58 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   };
 
   Food.users = [];
+  Food.recipes= [];
 
   Food.fetchUsers = callback =>
     $.get(`${__API_URL__}/api/v1/users`)
     .then(Food.loadUsers)
     .then(callback);
 
-  Food.loadUsers = rows => Food.users = rows.map(food => new Food(food));
+  Food.fetchWeek = (callback,ctx)=>
+    $.get(`${__API_URL__}/api/v1/recipes/${ctx.params.user_id}`)
+    .then(Food.loadWeek)
+    .then(callback);
+  
 
-  Food.loginSubmit = event => {
-    event.preventDefault();
+  Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
 
-    for (let i=0; i<Food.users.length; i++) {
-      if (event.target.user.value === Food.users.username[i]) {
-        if (event.target.password.value === Food.users.password[i]) {
-          Food.users[i].fetchCalendar();
-        } else {
-          alert('Incorrect Login');
-        }  
-      } else {
-        Food.newUser();
-      }
-    }
-  }
+  Food.loadWeek = rows => Food.recipes = rows.map(recipes => new Food(recipes));
+
+  // Food.loginSubmit = event => {
+  //   event.preventDefault();
+
+  //   for (let i=0; i<Food.users.length; i++) {
+  //     if (event.target.user.value === Food.users.username[i]) {
+  //       if (event.target.password.value === Food.users.password[i]) {
+  //         Food.users[i].fetchCalendar();
+  //       } else {
+  //         alert('Incorrect Login');
+  //       }  
+  //     } else {
+     
+  //     }
+  //   }
+  //   Food.newUser();
+  //   $('#admin-form').on('submit', function(event) {
+  //     event.preventDefault();
+  //     let token = event.target.passphrase.value;
+
+  //     $.get(`${__API_URL__}/api/v1/admin`, {token})
+  //       .then(res => {
+  //         localStorage.token = true;
+  //         page('/');
+  //       })
+  //       .catch(() => page('/'));
+  //   })
+  // };
+
+  // adminView.verify = function(ctx, next) {
+  //   if(!localStorage.token) $('.admin').addClass('admin-only');
+  //   else $('.admin').show();
+  //   next();
+  // }
+
+  
 
 
   module.Food = Food;
