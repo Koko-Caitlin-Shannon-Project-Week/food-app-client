@@ -32,7 +32,7 @@ var app = app || {};
 
 
   }
-
+  
   // foodView.initUpdate = function() {
   //   $('.container').hide()
   //   $('.recipe-view container').show()
