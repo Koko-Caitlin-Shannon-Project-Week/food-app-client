@@ -14,7 +14,7 @@ var app = app || {};
     $('.login-view container').show();
     $('.create-user').empty();
     $('.create-user').on('submit', app.Food.loginSubmit);
-  }
+  };
 
   foodView.initWeekView = function() {
     $('.container').hide()
@@ -24,7 +24,7 @@ var app = app || {};
     $('.update-button').on('click', 'button', function() {
        module.foodView.initUpdatePage;
     })
-  }
+  };
 
   // foodView.initUpdate = function() {
   //   $('.container').hide()
