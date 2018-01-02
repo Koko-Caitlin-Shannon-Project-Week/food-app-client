@@ -33,6 +33,8 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       };
     };
 
+    app.foodView.showDayView();
+
     console.log(steps, ingredients);
     // steps.push(instructions[1].steps[1].step);
     // ingredients.push(instructions[1].steps[1].ingredients[1].name);
@@ -69,27 +71,40 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   //       }
   //     } else {
 
-  //     }
-  //   }
-  //   Food.newUser();
-  //   $('#admin-form').on('submit', function(event) {
-  //     event.preventDefault();
-  //     let token = event.target.passphrase.value;
+   
+  Food.validateForm = function(e){
+    e.preventDefault();
 
-  //     $.get(`${__API_URL__}/api/v1/admin`, {token})
-  //       .then(res => {
-  //         localStorage.token = true;
-  //         page('/');
-  //       })
-  //       .catch(() => page('/'));
-  //   })
-  // };
+    let un = $('#user').val();
+    let pw = $('#password').val();
+    let usernames= [];
+    let passwords = [];
 
-  // adminView.verify = function(ctx, next) {
-  //   if(!localStorage.token) $('.admin').addClass('admin-only');
-  //   else $('.admin').show();
-  //   next();
-  // }
+    for(let i = 0; i< Food.users.length; i++){
+
+      usernames.push(Food.users[i].username);
+      
+      passwords.push(Food.users[i].password);
+
+
+    }
+      console.log(usernames, passwords);
+    if (usernames.includes(un) && passwords.includes(pw)) {
+      console.log(this);
+      Food.fetchData(this);
+      
+    }
+    else {
+        alert ("Login was unsuccessful, please check your username and password");
+        return false;
+    }
+    page('/calendar');
+}// need to post new User
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ var app = app || {};
     $('.container').hide();
     $('.login-view container').show();
     $('.create-user').empty();
-    $('.create-user').on('submit', app.Food.loginSubmit);
+    $('.create-user').on('submit', e => Food.validateForm(e));
   };
 
   foodView.initWeekView = function() {
