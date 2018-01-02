@@ -11,8 +11,7 @@ var app = app || {};
 
   foodView.initLoginPage = function() {
     $('.container').hide();
-    $('.login-view container').show();
-    $('.create-user').empty();
+    $('.login-view').show();
     $('.create-user').on('submit', e => Food.validateForm(e));
   };
 
@@ -32,7 +31,7 @@ var app = app || {};
 
 
   }
-  
+
   // foodView.initUpdate = function() {
   //   $('.container').hide()
   //   $('.recipe-view container').show()
