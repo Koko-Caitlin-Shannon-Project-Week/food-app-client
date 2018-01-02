@@ -14,7 +14,7 @@ var app = app || {};
     $('.login-view container').show();
     $('.create-user').empty();
     $('.create-user').on('submit', app.Food.loginSubmit);
-  }
+  };
 
   foodView.initWeekView = function() {
     $('.container').hide()
@@ -23,7 +23,7 @@ var app = app || {};
     $('.update-button').on('click', 'button', function() {
        module.foodView.initUpdatePage;
     })
-  }
+  };
 
   foodView.initUpdate = function() {
     $('.container').hide()
@@ -31,10 +31,9 @@ var app = app || {};
     $('.ingredients').empty();
     module.Food.all.map( recipe =>
       module.Food.fetchRecipe($(this).data(),
-      $('.recipeofday').append(recipe.toHtml('day-view-template')));// need to correct syntax;
+      $('.recipeofday').append(recipe.toHtml('day-view-template')))); // need to correct syntax;
     module.foodView.initWeekView;
-
-  }
+  };
 
   foodView.initRecipeList = function() {
     $('.container').hide()
@@ -45,11 +44,10 @@ var app = app || {};
         first: e.target.first.value,
         second: e.target.second.value,
         third: e.target.third.value,
-
       }
       app.Food.create(newRecipeList);
       $('.recipe-list').val('');
     })
-  }
+  };
   module.foodView = foodView;
 })(app)
