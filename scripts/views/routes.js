@@ -2,7 +2,7 @@
 
 page('/', (ctx,next)=>app.Food.fetchUsers(app.foodView.initLoginPage));
 
-page('/calendar', ctx => app.foodView.initWeekView(ctx));
+page('/calendar', app.foodView.initWeekView);
 
 page('/recipeform', ctx => app.foodView.initRecipeList(ctx));
 
