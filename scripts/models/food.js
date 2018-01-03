@@ -9,9 +9,19 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
 
-  Food.fetchData = (day) => {
-    $.getJSON('../../data/data.json')
-    .then(rawData => {
+ 
+
+
+  Food.fetchRecipe = (day) => {
+    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`).then(Food.loadRecipe).then(()=> Food.fetchInstructions(day));
+   
+  };
+
+  Food.fetchInstructions = (day) => {
+
+    console.log(Food.recipes[0].day);
+
+    $.get(`${__API_URL__}/api/v1/recipes/find/${Food.recipes[0].day}`) .then(rawData => {
       console.log(rawData);
       Food.getInstructions(rawData, day);
     })
@@ -46,15 +56,10 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     .then(Food.loadUsers)
     .then(callback);
 
-  Food.fetchWeek = (callback,ctx)=>
-    $.get(`${__API_URL__}/api/v1/recipes/${ctx.params.user_id}`)
-    .then(Food.loadWeek)
-    .then(callback);
-
 
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
 
-  Food.loadWeek = rows => Food.recipes = rows.map(recipes => new Food(recipes));
+  Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
 
 
   Food.validateForm = function(e){

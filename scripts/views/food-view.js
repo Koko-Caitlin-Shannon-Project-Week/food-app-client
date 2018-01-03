@@ -32,9 +32,9 @@ var app = app || {};
 
   foodView.showDayView = function(e){
     e.preventDefault();
-    console.log(app.Food.currentUserID);
+    console.log(e.currentTarget.id);
     $(`.recipe-${e.currentTarget.id}`).show();
-    app.Food.fetchData(e.currentTarget.id);
+    app.Food.fetchRecipe(e.currentTarget.id);
     // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
 
 
