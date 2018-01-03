@@ -9,20 +9,41 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
 
- 
+
 
 
   Food.fetchRecipe = (day) => {
-    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`).then(Food.loadRecipe).then(()=> Food.fetchInstructions(day));
-   
+    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`)
+    .then(Food.loadRecipe)
+    .then(()=> Food.fetchInstructions(day));
+
   };
 
   Food.fetchInstructions = (day) => {
 
-    console.log(Food.recipes[0].day);
+    let recipeId = undefined;
+    Food.recipes[0].day = day;
+    console.log(Food.recipes[0].monday, Food.recipes[0]);
 
-    $.get(`${__API_URL__}/api/v1/recipes/find/${Food.recipes[0].day}`) .then(rawData => {
-      console.log(rawData);
+    if(day === 'monday') {
+      recipeId = Food.recipes[0].monday;
+    } else if (day === 'tuesday') {
+      recipeId = Food.recipes[0].tuesday
+    } else if (day === 'wednesday') {
+      recipeId = Food.recipes[0].wednesday
+    } else if (day === 'thursday') {
+      recipeId = Food.recipes[0].thursday
+    } else if (day === 'friday') {
+      recipeId = Food.recipes[0].friday
+    } else if (day === 'saturday') {
+      recipeId = Food.recipes[0].saturday
+    } else if (day === 'sunday') {
+      recipeId = Food.recipes[0].sunday
+    }
+
+    $.get(`${__API_URL__}/api/v1/recipes/find/${recipeId}`)
+    .then(rawData => {
+      console.log(rawData, "error");
       Food.getInstructions(rawData, day);
     })
   };
