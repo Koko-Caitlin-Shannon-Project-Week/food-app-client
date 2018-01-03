@@ -15,20 +15,42 @@ var app = app || {};
     $('.create-user').on('submit', e => app.Food.validateForm(e));
   };
 
-  foodView.initWeekView = function(user) {
+  foodView.initWeekView = function() {
     $('.container').hide();
     $('.week-view').show();
 
-    $('#monday-title').on('click', foodView.showDayView);
+    console.log(user);
+
+    $('#monday').on('click', foodView.showDayView);
+    $('#tuesday').on('click', foodView.showDayView);
+    $('#wednesday').on('click', foodView.showDayView);
+    $('#thursday').on('click', foodView.showDayView);
+    $('#friday').on('click', foodView.showDayView);
+    $('#saturday').on('click', foodView.showDayView);
+    $('#sunday').on('click', foodView.showDayView);
   };
 
   foodView.showDayView = function(e){
-    e.preventDefault()
-    console.log(e);
+    e.preventDefault();
+    console.log(app.Food.currentUserID);
+    $(`.recipe-${e.currentTarget.id}`).show();
+    app.Food.fetchData(e.currentTarget.id);
     // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
 
 
   }
+
+  foodView.appendSteps = (steps, day) => {
+    for(let i = 0; i < steps.length; i++) {
+      $(`#${day}-steps`).append(`<li>${steps[i]}</li>`);
+    };
+  };
+
+  foodView.appendIngredients = (ingredients, day) => {
+    for(let i = 0; i < ingredients.length; i++) {
+      $(`#${day}-ingredients`).append(`<li>${ingredients[i]}</li>`);
+    };
+  };
 
   // foodView.initUpdate = function() {
   //   $('.container').hide()
