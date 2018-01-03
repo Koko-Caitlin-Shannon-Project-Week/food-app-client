@@ -92,8 +92,8 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       Food.currentUserID = Food.users[usernames.indexOf(un)].user_id;
       app.foodView.initWeekView();
     } else {
-        alert ("Login was unsuccessful, please check your username and password");
-        return false;
+        $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val()})
+        .then(app.foodView.initWeekView);
     }
     // page('/calendar');
 }// need to post new User
