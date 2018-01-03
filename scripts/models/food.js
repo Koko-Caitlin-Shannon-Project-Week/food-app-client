@@ -75,10 +75,10 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     }
     if (!!(usernames.includes(un)) && !!(passwords.includes(pw))) {
       Food.currentUserID = Food.users[usernames.indexOf(un)].user_id;
-      app.foodView.initWeekView();
+      page('/calendar');
     } else {
         $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val()})
-        .then(app.foodView.initWeekView);
+        .then(() => page('/calander'));
     }
     // page('/calendar');
 }
