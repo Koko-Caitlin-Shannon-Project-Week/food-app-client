@@ -35,9 +35,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
     app.foodView.appendSteps(steps, day);
     app.foodView.appendIngredients(ingredients, day);
-    // steps.push(instructions[1].steps[1].step);
-    // ingredients.push(instructions[1].steps[1].ingredients[1].name);
-    // console.log(steps, ingredients);
   }
 
   Food.users = [];
@@ -58,18 +55,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
 
   Food.loadWeek = rows => Food.recipes = rows.map(recipes => new Food(recipes));
-
-  // Food.loginSubmit = event => {
-  //   event.preventDefault();
-
-  //   for (let i=0; i<Food.users.length; i++) {
-  //     if (event.target.user.value === Food.users.username[i]) {
-  //       if (event.target.password.value === Food.users.password[i]) {
-  //         Food.users[i].fetchCalendar();
-  //       } else {
-  //         alert('Incorrect Login');
-  //       }
-  //     } else {
 
 
   Food.validateForm = function(e){
@@ -96,12 +81,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
         .then(() => page('/calander'));
     }
     // page('/calendar');
-}// need to post new User
-
-
-
-
-
+}
 
 
 
