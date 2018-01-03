@@ -12,22 +12,20 @@ var app = app || {};
   foodView.initLoginPage = function() {
     $('.container').hide();
     $('.login-view').show();
-    $('.create-user').on('submit', e => Food.validateForm(e));
+    $('.create-user').on('submit', e => app.Food.validateForm(e));
   };
 
-  foodView.initWeekView = function() {
-    $('.container').hide()
-    $('.week-view container').show()
+  foodView.initWeekView = function(user) {
+    $('.container').hide();
+    $('.week-view').show();
 
-    module.foodView.all.map(book => $('#detail-desc').append(book.toHtml('day-view-template')));
-    $('.update-button').on('click', 'button', function() {
-       module.foodView.initUpdatePage;
-    })
+    $('#monday-title').on('click', foodView.showDayView);
   };
 
-  foodView.showDayView = function(weekday , steps, ingredients){
-
-    $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
+  foodView.showDayView = function(e){
+    e.preventDefault()
+    console.log(e);
+    // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
 
 
   }

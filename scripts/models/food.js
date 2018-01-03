@@ -9,7 +9,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
 
-  Food.fetchData = () => {
+  Food.fetchData = (user) => {
     $.getJSON('../../data/data.json')
     .then(rawData => {
       console.log(rawData);
@@ -33,7 +33,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       };
     };
 
-    app.foodView.showDayView();
+    page('/calandar');
 
     console.log(steps, ingredients);
     // steps.push(instructions[1].steps[1].step);
@@ -71,7 +71,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   //       }
   //     } else {
 
-   
+
   Food.validateForm = function(e){
     e.preventDefault();
 
@@ -80,25 +80,21 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     let usernames= [];
     let passwords = [];
 
-    for(let i = 0; i< Food.users.length; i++){
+    for(var i = 0; i< Food.users.length; i++){
 
       usernames.push(Food.users[i].username);
-      
+
       passwords.push(Food.users[i].password);
 
 
     }
-      console.log(usernames, passwords);
-    if (usernames.includes(un) && passwords.includes(pw)) {
-      console.log(this);
-      Food.fetchData(this);
-      
-    }
-    else {
+    if (!!(usernames.includes(un)) && !!(passwords.includes(pw))) {
+      app.foodView.initWeekView(Food.users[usernames.indexOf(un)]);
+    } else {
         alert ("Login was unsuccessful, please check your username and password");
         return false;
     }
-    page('/calendar');
+    // page('/calendar');
 }// need to post new User
 
 
