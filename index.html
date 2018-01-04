@@ -70,7 +70,8 @@
                             <h3>Steps</h3>
                         <ul id="monday-steps"></ul>
                             <h3>Ingredients</h3>
-                        <ul id="monday-ingredients"></ul>
+                            <ul id="monday-ingredients"></ul>
+                            <button id="mon-update"><a href="/recipeformmon">Update</a></button>
                     </section>
 
                 </div>
@@ -81,6 +82,7 @@
                         <ul id="tuesday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id="tuesday-ingredients"></ul>
+                        <button id="tues-update"><a href="/recipeformtues">Update</a></button>
                     </section>
                 </div>
                 <div>
@@ -90,6 +92,7 @@
                         <ul id="wednesday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id="wednesday-ingredients"></ul>
+                        <button id="wed-update"><a href="/recipeformwed">Update</a></button>
                     </section>
                 </div>
                 <div>
@@ -99,6 +102,7 @@
                         <ul id="thursday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id="thursday-ingredients"></ul>
+                        <button href="/recipeformthur" id="thur-update"><a href="/recipeformthur">Update</a>></button>
                     </section>
                 </div>
                 <div>
@@ -108,6 +112,7 @@
                         <ul id="friday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id= "friday-ingredients"></ul>
+                        <button id="fri-update"><a href="/recipeformfri">Update</a>></button>
                     </section>
                 </div>
                 <div>
@@ -117,6 +122,7 @@
                         <ul id="saturday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id= "saturday-ingredients"></ul>
+                        <button id="sat-update"><a href="/recipeformsat">Update</a></button>
                     </section>
                 </div>
                 <div>
@@ -126,19 +132,21 @@
                         <ul id="sunday-steps"></ul>
                             <h3>Ingredients</h3>
                         <ul id="sunday-ingredients"></ul>
+                        <button id="sun-update"><a href="/recipeformsun">Update</a></button>
                     </section>
                 </div>
             </section>
         </div>
         <div>
-            <section class="recipe-view container">
+            <section class="form-view container">
                 <h2>Please insert ingredients</h2>
                 <form class="ingredients">
                     <input name= "first"id="first-ing" placeholder="ingredient" value="">
-                    <input name= "second"id="second-ing" placeholder="ingredient" value="">
-                    <input name = "third" id="third-ing" placeholder="ingredient" value="">
+                    <!-- <input name= "second"id="second-ing" placeholder="ingredient" value=""> -->
+                    <!-- <input name = "third" id="third-ing" placeholder="ingredient" value=""> -->
+                    <button type="submit">Find Recipes</button>
                 </form>
-                <button type="submit">Find Recipes</button>
+                <section id="topTen"></section>
             </section>
         </div>
     </main>
