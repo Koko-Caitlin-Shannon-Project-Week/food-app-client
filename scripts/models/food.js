@@ -49,7 +49,37 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   };
 
   Food.recipeFilter = day => {
-    console.log(Food.recipes);
+    console.log(Food.recipes[0]);
+
+    let recipe = undefined;
+
+    if(day === 'monday') {
+      recipe = Food.recipes[0].monday;
+    } else if (day === 'tuesday') {
+      recipe = Food.recipes[0].tuesday
+    } else if (day === 'wednesday') {
+      recipe = Food.recipes[0].wednesday
+    } else if (day === 'thursday') {
+      recipe = Food.recipes[0].thursday
+    } else if (day === 'friday') {
+      recipe = Food.recipes[0].friday
+    } else if (day === 'saturday') {
+      recipe = Food.recipes[0].saturday
+    } else if (day === 'sunday') {
+      recipe = Food.recipes[0].sunday
+    }
+
+    let parsed = JSON.parse(recipe);
+    console.log(recipe);
+    console.log(parsed);
+
+    let img = parsed.image;
+    let title = parsed.label;
+    let url = parsed.url;
+
+    console.log("img",img,"title",title,"url",url);
+
+    app.foodView.appendDay(img, title, url, day);
   };
 
   // Food.fetchInstructions = (day) => {

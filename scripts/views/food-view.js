@@ -30,11 +30,6 @@ var app = app || {};
     $('#sunday').on('click', foodView.showDayView);
   };
 
-  foodView.initAboutUs = function () {
-    $('.container').hide();
-    $('.about-us').show();
-  };
-
   foodView.showDayView = function(e){
     e.preventDefault();
     console.log(app.Food.currentUserID);
@@ -56,11 +51,28 @@ var app = app || {};
   foodView.appendRecipes = function(topTen, day) {
     console.log(topTen);
     app.Food.recipeList = topTen;
+    $('#topTen').empty();
     for (let i=0; i<10; i++) {
       $('#topTen').append(`<h3>${topTen.hits[i].recipe.label}</h3>`)
       $('#topTen').append(`<img id="recipe-${i}" src="${topTen.hits[i].recipe.image}">`)
       $(`#recipe-${i}`).on('click', e => app.Food.selectRecipe(e, day))
     }
+  };
+
+  foodView.initAboutUs = function () {
+    $('.container').hide();
+    $('.about-us').show();
+  };
+
+  foodView.appendDay = function(img, title, url, day) {
+      $('.container').hide();
+      $('.week-view').show();
+      $(`.recipe-${day}-section`).empty();
+      $(`.recipe-${day}`).show();
+      $(`.recipe-${day}-section`).show();
+
+      $(`.recipe-${day}-section`).append(`<h3>${title}</h3>`);
+      $(`.recipe-${day}-section`).append(`<a href="${url}" target="_blank"><img class="image" src="${img}"></a>`);
   };
 
   // foodView.appendSteps = (steps, day) => {
