@@ -50,8 +50,27 @@ button {
     background-image: url('/styles/fonts/images/legal-pad.png');
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 16px;
-    padding-left: 9px;
+    padding-top: 22px;
+    padding-left: 12px;
+  }
+
+  h1 {
+    overflow: hidden; 
+    border-right: .15em solid  rgb(148, 28, 19); 
+    white-space: nowrap; 
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+      typing 2s steps(40, end),
+      blink-caret .4s step-end 6;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 160px }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(148, 28, 19); }
   }
 
   @media screen and (min-width: 800px) {
@@ -61,6 +80,11 @@ button {
     } 
     #logo {
       float: left;
-      width: 10%;
-     }    
+      width: 5%;
+     } 
+     .week-view {
+       padding-top: 40px;
+       padding-left: 20px;
+     } 
+     
   }
