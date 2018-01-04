@@ -9,7 +9,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   function Food(rawUser) {
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
-  
+
   Food.getDefaultRecipe = () => {
     $.get(`${__API_URL__}/api/v1/recipes/search`)
     .then (res => console.log(JSON.parse(res.text)));
@@ -32,21 +32,25 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     $.ajax({
       url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID}/${day}`,
       method: 'PUT',
-      contentType: 'json',
       data: Food.recipeList.hits[recNum].recipe,
     })
     .then (()=> page('/calendar'));
   }
 
 
-  
+  Food.recipes= [];
 
 
-  // Food.fetchRecipe = (day) => {
-  //   $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`)
-  //   .then(Food.loadRecipe)
-  //   .then(()=> Food.fetchInstructions(day));
-  // };
+
+  Food.fetchRecipes = (day) => {
+    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`)
+    .then(Food.loadRecipe)
+    .then(()=> Food.recipeFilter(day));
+  };
+
+  Food.recipeFilter = day => {
+    console.log(Food.recipes);
+  };
 
   // Food.fetchInstructions = (day) => {
 
@@ -98,7 +102,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   // }
 
   Food.users = [];
-  Food.recipes= [];
   Food.currentUserID = undefined;
 
   Food.fetchUsers = callback =>
@@ -109,7 +112,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
 
-  // Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
+  Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
 
 
   Food.validateForm = function(e){

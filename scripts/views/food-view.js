@@ -5,6 +5,10 @@ var app = app || {};
 (function (module) {
   const foodView = {};
 
+
+
+
+
   foodView.initLoginPage = function() {
     $('.container').hide();
     $('.login-view').show();
@@ -33,10 +37,14 @@ var app = app || {};
 
   foodView.showDayView = function(e){
     e.preventDefault();
-    console.log(e.currentTarget.id);
+    console.log(app.Food.currentUserID);
     $(`.recipe-${e.currentTarget.id}`).show();
+    //app.Food.fetchData(e.currentTarget.id);
+    app.Food.fetchRecipes(e.currentTarget.id);
     // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
-  };
+
+
+  }
 
   foodView.initFormView = function(day){
     console.log('form');
@@ -54,8 +62,6 @@ var app = app || {};
       $(`#recipe-${i}`).on('click', e => app.Food.selectRecipe(e, day))
     }
   };
-
-
 
   // foodView.appendSteps = (steps, day) => {
   //   for(let i = 0; i < steps.length; i++) {
