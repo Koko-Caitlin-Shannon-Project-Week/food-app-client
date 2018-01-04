@@ -1,7 +1,8 @@
 body{
     background-image: url('/styles/fonts/images/bg.png');
     background-size: contain;
-    color: #9ECC72;
+    /* color: #9ECC72; */
+    color: white;
     font-family: 'Handlee', cursive;
 }
 header,
@@ -11,8 +12,8 @@ header,
 footer,
 .form-view,
 .about-us{
-    background: rgb(244, 247, 190);
-    border: solid 2px rgb(148, 28, 19);
+    background: rgba(182, 53, 36, 0.8);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     padding: 1%;
     margin: 2%;
 }
@@ -37,5 +38,9 @@ footer {
 
 .about-us {
     text-align: center;
+}
+
+h3 {
+    color: black;
 }
 
