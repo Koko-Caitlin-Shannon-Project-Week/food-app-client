@@ -9,10 +9,10 @@ function AboutPerson(name, url, bioText) {
   aboutTeam.push(this);
 }
 
-var shannon= new AboutPerson('Shannon', 'assets/IMG_7503.jpg', 'Hi, my name is Shannon, and this is my bio. I have a cat and his name is Mr. Kittycat Meowface. I go to school at Code Fellows. I have two roommates and they both work at Pikes Place Market for a produce vender.');
+var shannon= new AboutPerson('Shannon', './styles/fonts/images/shannon.jpg', 'Hi, my name is Shannon, and this is my bio. I have a cat and his name is Mr. Kittycat Meowface. I go to school at Code Fellows. I have two roommates and they both work at Pikes Place Market for a produce vender.');
 var koko = new AboutPerson('Koko', './styles/fonts/images/koko.jpg', 'My name is Kowser Kassa but I’ve gone by “Koko” since childhood. I am 23 years old and a student at Code Fellows. I hope to begin a career as a Full-Stack JavaScript devloper and continue to travel the world. I want to explore as much as I can while encouraging young children of color to persue STEM careers.');
 var caitlin = new AboutPerson ('Caitlin', './styles/fonts/images/caitlin.jpg','bio')
-console.log('aboutTeam array: ', aboutTeam);
+
 
 
 var clickCount = 0;
