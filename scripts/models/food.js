@@ -14,19 +14,30 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     .then (res => console.log(JSON.parse(res.text)));
   };
 
-  Food.getRecipes = (event) => {
+  Food.getRecipes = (event, day) => {
     event.preventDefault();
     let ing = $('#first-ing').val();
     console.log(ing);
     $.get(`${__API_URL__}/api/v1/recipes/search/${ing}`)
     .then (res => JSON.parse(res.text))
-    .then (res => app.foodView.appendRecipes(res))
+    .then (res => app.foodView.appendRecipes(res, day))
   };
 
-  Food.selectRecipe = (event) => {
+  Food.selectRecipe = (event, day) => {
     event.preventDefault();
-    let selected = event.target.id
+    let selected = event.target.id;
+    let recNum = selected.charAt(selected.length-1);
+    console.log(recNum);
+    $.ajax({
+      url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID}/${day}`,
+      method: 'PUT',
+      data: JSON.stringify(Food.recipeList.hits[recNum].recipe),
+    })
+    .then (()=> page('/calendar'))
   }
+
+
+  
 
 
   // Food.fetchRecipe = (day) => {

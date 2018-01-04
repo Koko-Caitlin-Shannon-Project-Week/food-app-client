@@ -33,19 +33,20 @@ var app = app || {};
     // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
   };
 
-  foodView.initFormView = function(){
+  foodView.initFormView = function(day){
     console.log('form');
     $('.container').hide();
     $('.form-view').show();
-    $('.ingredients').on('submit', app.Food.getRecipes)
+    $('.ingredients').on('submit', e => app.Food.getRecipes(e, day))
   };
 
-  foodView.appendRecipes = function(topTen) {
+  foodView.appendRecipes = function(topTen, day) {
     console.log(topTen);
+    app.Food.recipeList = topTen;
     for (let i=0; i<10; i++) {
       $('#topTen').append(`<h3>${topTen.hits[i].recipe.label}</h3>`)
       $('#topTen').append(`<img id="recipe-${i}" src="${topTen.hits[i].recipe.image}">`)
-      $(`#recipe-${i}`).on('click', app.Food.selectRecipe)
+      $(`#recipe-${i}`).on('click', e => app.Food.selectRecipe(e, day))
     }
   };
 
