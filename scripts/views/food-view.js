@@ -26,6 +26,11 @@ var app = app || {};
     $('#sunday').on('click', foodView.showDayView);
   };
 
+  foodView.initAboutUs = function () {
+    $('.container').hide();
+    $('.about-us').show();
+  };
+
   foodView.showDayView = function(e){
     e.preventDefault();
     console.log(e.currentTarget.id);
