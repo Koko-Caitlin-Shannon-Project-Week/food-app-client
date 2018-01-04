@@ -7,16 +7,27 @@ header,
 .login-view,
 .week-view,
 .recipe-view,
-footer {
+footer,
+.form-view{
     background: rgb(244, 247, 190);
     border: solid 2px rgb(148, 28, 19);
     padding: 1%;
     margin: 2%;
 }
 h1 {
-    display: inline;
+    display: inline-block;
+
+}
+#logo {
+    float: left;
 }
 footer {
     position: sticky;
     height: 3%;
+}
+#topTen {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    width: 100%;
 }

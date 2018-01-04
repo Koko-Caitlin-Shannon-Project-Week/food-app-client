@@ -7,8 +7,10 @@
 input {
     display: block;
     text-align: center;
+    font-size: 14px;
     margin: auto;
     width: 30%;
     padding: 1%;
     margin-bottom: 1%;
+    font-family: 'Handlee', cursive;
 }
