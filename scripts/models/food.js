@@ -2,6 +2,7 @@
 
 var app = app || {};
 var __API_URL__ = 'https://cool-food.herokuapp.com';
+// var __API_URL__ = 'https://localhost:3000';
 
 (function(module) {
 
@@ -31,9 +32,9 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     $.ajax({
       url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID}/${day}`,
       method: 'PUT',
-      data: JSON.stringify(Food.recipeList.hits[recNum].recipe),
+      data: JSON.stringify(Food.recipeList.hits[recNum].recipe)
     })
-    .then (()=> page('/calendar'))
+    .then (()=> page('/calendar'));
   }
 
 
