@@ -2,6 +2,7 @@
 
 var app = app || {};
 var __API_URL__ = 'https://cool-food.herokuapp.com';
+// var __API_URL__ = 'https://localhost:3000';
 
 (function(module) {
 
@@ -33,7 +34,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       method: 'PUT',
       data: Food.recipeList.hits[recNum].recipe,
     })
-    .then (()=> page('/calendar'))
+    .then (()=> page('/calendar'));
   }
 
 
@@ -135,7 +136,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       page('/calendar');
     } else {
         $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val()})
-        .then(() => page('/calander'));
+        .then(() => page('/calendar'));
     }
     // page('/calendar');
 }

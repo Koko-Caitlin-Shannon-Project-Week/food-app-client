@@ -36,3 +36,20 @@ button {
     opacity: 1;
     right: 0;
   }
+
+  
+  a,
+  a :link,
+  a :visited,
+  a :active {
+    color: #FFFFFF;
+    text-decoration-line: none;
+  }
+
+  .week-view {
+    background-image: url('/styles/fonts/images/legal-pad.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 16px;
+    padding-left: 9px;
+  }
