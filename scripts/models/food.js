@@ -8,7 +8,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   function Food(rawUser) {
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
-  
+
   Food.getDefaultRecipe = () => {
     $.get(`${__API_URL__}/api/v1/recipes/search`)
     .then (res => console.log(JSON.parse(res.text)));
@@ -31,13 +31,13 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     $.ajax({
       url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID}/${day}`,
       method: 'PUT',
-      data: JSON.stringify(Food.recipeList.hits[recNum].recipe),
+      data: Food.recipeList.hits[recNum].recipe,
     })
     .then (()=> page('/calendar'))
   }
 
 
-  
+
 
 
   // Food.fetchRecipe = (day) => {
