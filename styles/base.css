@@ -16,14 +16,17 @@ footer,
 }
 h1 {
     display: inline-block;
+    font-size: 100%;
 
 }
 #logo {
     float: left;
 }
 footer {
-    position: sticky;
-    height: 3%;
+    /* position: sticky; */
+    width: 93.5%;
+    display: inline-block;
+    text-align: center;
 }
 #topTen {
     display: inline-block;

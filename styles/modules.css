@@ -37,15 +37,6 @@ button {
     right: 0;
   }
 
-  #monday,
-  #tuesday,
-  #wednesday,
-  #thursday,
-  #friday,
-  #saturday,
-  #sunday {
-    font-size: 24px;
-  }
   
   a,
   a :link,
@@ -53,4 +44,12 @@ button {
   a :active {
     color: #FFFFFF;
     text-decoration-line: none;
+  }
+
+  .week-view {
+    background-image: url('/styles/fonts/images/legal-pad.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 16px;
+    padding-left: 9px;
   }
