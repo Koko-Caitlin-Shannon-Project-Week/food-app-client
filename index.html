@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cool Foods</title>
-    <link href="./styles/reset.css" rel="stylesheet">
     <link href="./styles/icons.css" rel="stylesheet">
     <link href="./styles/base.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
@@ -66,61 +65,88 @@
         <div>
             <section class="week-view container">
                 <div>
-                    <button id="monday">Monday</button>
+                    <button id="monday">Monday </button>
                     <section class="recipe-monday container">
-                      <ul id="monday-steps"></ul>
-                      <ul id="monday-ingredients"></ul>
+                            <h3>Steps</h3>
+                        <ul id="monday-steps"></ul>
+                            <h3>Ingredients</h3>
+                            <ul id="monday-ingredients"></ul>
+                            <button id="mon-update"><a href="/recipeformmon">Update</a></button>
                     </section>
 
                 </div>
                 <div>
                     <button id="tuesday">Tuesday</button>
-                    <section class="recipe-tuesday container">  <ul id="tuesday-steps"></ul>
-                      <ul id="tuesday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-tuesday container"> 
+                            <h3>Steps</h3> 
+                        <ul id="tuesday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id="tuesday-ingredients"></ul>
+                        <button id="tues-update"><a href="/recipeformtues">Update</a></button>
+                    </section>
                 </div>
                 <div>
                     <button id="wednesday">Wednesday</button>
-                    <section class="recipe-wednesday container">  <ul id="wednesday-steps"></ul>
-                      <ul id="wednesday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-wednesday container">
+                            <h3>Steps</h3>
+                        <ul id="wednesday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id="wednesday-ingredients"></ul>
+                        <button id="wed-update"><a href="/recipeformwed">Update</a></button>
+                    </section>
                 </div>
                 <div>
                     <button id="thursday">Thursday</button>
-                    <section class="recipe-thursday container">  <ul id="thursday-steps"></ul>
-                      <ul id="thursday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-thursday container">  
+                            <h3>Steps</h3>
+                        <ul id="thursday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id="thursday-ingredients"></ul>
+                        <button href="/recipeformthur" id="thur-update"><a href="/recipeformthur">Update</a>></button>
+                    </section>
                 </div>
                 <div>
                     <button id="friday">Friday</button>
-                    <section class="recipe-friday container">  <ul id="friday-steps"></ul>
-                      <ul id= "friday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-friday container">  
+                            <h3>Steps</h3>
+                        <ul id="friday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id= "friday-ingredients"></ul>
+                        <button id="fri-update"><a href="/recipeformfri">Update</a>></button>
+                    </section>
                 </div>
                 <div>
                     <button id="saturday">Saturday</button>
-                    <section class="recipe-saturday">  <ul id="saturday-steps"></ul>
-                      <ul id= "saturday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-saturday container">
+                            <h3>Steps</h3>
+                        <ul id="saturday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id= "saturday-ingredients"></ul>
+                        <button id="sat-update"><a href="/recipeformsat">Update</a></button>
+                    </section>
                 </div>
-
                 <div>
                     <button id="sunday">Sunday</button>
-                    <section class="recipe-sunday">  <ul id="sunday-steps"></ul>
-                      <ul id="sunday-ingredients"></ul>
-                      </section>
+                    <section class="recipe-sunday container"> 
+                            <h3>Steps</h3> 
+                        <ul id="sunday-steps"></ul>
+                            <h3>Ingredients</h3>
+                        <ul id="sunday-ingredients"></ul>
+                        <button id="sun-update"><a href="/recipeformsun">Update</a></button>
+                    </section>
                 </div>
             </section>
         </div>
         <div>
-            <section class="recipe-view container">
+            <section class="form-view container">
                 <h2>Please insert ingredients</h2>
                 <form class="ingredients">
                     <input name= "first"id="first-ing" placeholder="ingredient" value="">
-                    <input name= "second"id="second-ing" placeholder="ingredient" value="">
-                    <input name = "third" id="third-ing" placeholder="ingredient" value="">
+                    <!-- <input name= "second"id="second-ing" placeholder="ingredient" value=""> -->
+                    <!-- <input name = "third" id="third-ing" placeholder="ingredient" value=""> -->
+                    <button type="submit">Find Recipes</button>
                 </form>
-                <button type="submit">Find Recipes</button>
+                <section id="topTen"></section>
             </section>
         </div>
     </main>

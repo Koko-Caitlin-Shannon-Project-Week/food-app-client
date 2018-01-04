@@ -5,10 +5,6 @@ var app = app || {};
 (function (module) {
   const foodView = {};
 
-
-
-
-
   foodView.initLoginPage = function() {
     $('.container').hide();
     $('.login-view').show();
@@ -34,23 +30,39 @@ var app = app || {};
     e.preventDefault();
     console.log(e.currentTarget.id);
     $(`.recipe-${e.currentTarget.id}`).show();
-    app.Food.fetchRecipe(e.currentTarget.id);
     // $(`${weekday}-steps`).append(`<li>${steps[0]}</li>`)
-
-
-  }
-
-  foodView.appendSteps = (steps, day) => {
-    for(let i = 0; i < steps.length; i++) {
-      $(`#${day}-steps`).append(`<li>${steps[i]}</li>`);
-    };
   };
 
-  foodView.appendIngredients = (ingredients, day) => {
-    for(let i = 0; i < ingredients.length; i++) {
-      $(`#${day}-ingredients`).append(`<li>${ingredients[i]}</li>`);
-    };
+  foodView.initFormView = function(day){
+    console.log('form');
+    $('.container').hide();
+    $('.form-view').show();
+    $('.ingredients').on('submit', e => app.Food.getRecipes(e, day))
   };
+
+  foodView.appendRecipes = function(topTen, day) {
+    console.log(topTen);
+    app.Food.recipeList = topTen;
+    for (let i=0; i<10; i++) {
+      $('#topTen').append(`<h3>${topTen.hits[i].recipe.label}</h3>`)
+      $('#topTen').append(`<img id="recipe-${i}" src="${topTen.hits[i].recipe.image}">`)
+      $(`#recipe-${i}`).on('click', e => app.Food.selectRecipe(e, day))
+    }
+  };
+
+
+
+  // foodView.appendSteps = (steps, day) => {
+  //   for(let i = 0; i < steps.length; i++) {
+  //     $(`#${day}-steps`).append(`<li>${steps[i]}</li>`);
+  //   };
+  // };
+
+  // foodView.appendIngredients = (ingredients, day) => {
+  //   for(let i = 0; i < ingredients.length; i++) {
+  //     $(`#${day}-ingredients`).append(`<li>${ingredients[i]}</li>`);
+  //   };
+  // };
 
   // foodView.initUpdate = function() {
   //   $('.container').hide()

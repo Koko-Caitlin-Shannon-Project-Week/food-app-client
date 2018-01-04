@@ -16,10 +16,6 @@ footer {
 h1 {
     display: inline;
 }
-h2 {
-    padding: 1%;
-}
-
 footer {
     position: sticky;
     height: 3%;

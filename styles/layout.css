@@ -1,7 +1,14 @@
 .create-user,
 .ingredients {
     padding: .5%;
+    text-align: center;
+
 }
 input {
     display: block;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 1%;
+    margin-bottom: 1%;
 }
