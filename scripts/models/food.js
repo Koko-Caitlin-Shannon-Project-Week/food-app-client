@@ -5,16 +5,13 @@ var app = app || {};
 var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
-
   function Food(rawUser) {
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
-
   Food.getDefaultRecipe = () => {
     $.get(`${__API_URL__}/api/v1/recipes/search`)
     .then (res => console.log(JSON.parse(res.text)));
   };
-
   Food.getRecipes = (event, day) => {
     event.preventDefault();
     let ing = $('#first-ing').val();
@@ -23,7 +20,6 @@ var __API_URL__ = 'http://localhost:3000';
     .then (res => JSON.parse(res.text))
     .then (res => app.foodView.appendRecipes(res, day))
   };
-
   Food.selectRecipe = (event, day) => {
     event.preventDefault();
     let selected = event.target.id;
@@ -36,23 +32,15 @@ var __API_URL__ = 'http://localhost:3000';
     })
     .then (()=> page('/calendar'));
   }
-
-
   Food.recipes= [];
-
-
-
   Food.fetchRecipes = (day) => {
     $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID.user_id}`)
     .then(Food.loadRecipe)
     .then(()=> Food.recipeFilter(day));
   };
-
   Food.recipeFilter = day => {
     console.log(Food.recipes[0]);
-
     let recipe = undefined;
-
     if(day === 'monday') {
       recipe = Food.recipes[0].monday;
     } else if (day === 'tuesday') {
@@ -81,41 +69,27 @@ var __API_URL__ = 'http://localhost:3000';
 
     app.foodView.appendDay(img, title, url, day);
   };
-
   Food.users = [];
   Food.currentUserID = undefined;
-
   Food.fetchUsers = callback =>
     $.get(`${__API_URL__}/api/v1/users`)
     .then(Food.loadUsers)
     .then(callback);
-
-
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
-
   Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
-
   Food.validateForm = function(e){
     e.preventDefault();
-
     let un = $('#user').val();
     let pw = $('#password').val();
     let usernames= [];
     let passwords = [];
-
     console.log($('#user').val(),$('#password').val());
-
     for(var i = 0; i< Food.users.length; i++){
-
       usernames.push(Food.users[i].username);
-
       passwords.push(Food.users[i].password);
-
-
     }
     if (!!(!!(usernames.includes(un)) && !!(passwords.includes(pw))) && !!(usernames.indexOf(un) === passwords.indexOf(pw))) {
       $.get(`${__API_URL__}/api/v1/users/id/${$('#user').val()}/${$('#password').val()}`)
-      //.then(res => console.log(res))
       .then(res => Food.currentUserID = res);
     } else {
         $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val()})
@@ -123,6 +97,5 @@ var __API_URL__ = 'http://localhost:3000';
     }
     page('/calendar');
 }
-
   module.Food = Food;
 })(app);
