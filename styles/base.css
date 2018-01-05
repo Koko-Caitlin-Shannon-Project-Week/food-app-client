@@ -1,15 +1,9 @@
-html, body{
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+html, 
+body{
     background-image: url('/styles/fonts/images/bg.png');
     background-size: contain;
-    /* color: #9ECC72; */
     color: white;
-    font-family: 'Handlee', cursive;
-    
+    font-family: 'Handlee', cursive;  
 }
 header,
 .login-view,
@@ -43,18 +37,15 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
-
 #topTen {
     display: inline-block;
     text-align: center;
     margin: auto;
     width: 100%;
 }
-
 .about-us {
     text-align: center;
 }
-
 h3 {
     color: black;
 }
