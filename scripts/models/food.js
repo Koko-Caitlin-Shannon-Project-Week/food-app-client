@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://cool-food.herokuapp.com';
-// var __API_URL__ = 'https://localhost:3000';
+// var __API_URL__ = 'https://cool-food.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
 
@@ -82,55 +82,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     app.foodView.appendDay(img, title, url, day);
   };
 
-  // Food.fetchInstructions = (day) => {
-
-  //   let recipeId = undefined;
-  //   Food.recipes[0].day = day;
-  //   console.log(Food.recipes[0].monday, Food.recipes[0]);
-
-  //   if(day === 'monday') {
-  //     recipeId = Food.recipes[0].monday;
-  //   } else if (day === 'tuesday') {
-  //     recipeId = Food.recipes[0].tuesday
-  //   } else if (day === 'wednesday') {
-  //     recipeId = Food.recipes[0].wednesday
-  //   } else if (day === 'thursday') {
-  //     recipeId = Food.recipes[0].thursday
-  //   } else if (day === 'friday') {
-  //     recipeId = Food.recipes[0].friday
-  //   } else if (day === 'saturday') {
-  //     recipeId = Food.recipes[0].saturday
-  //   } else if (day === 'sunday') {
-  //     recipeId = Food.recipes[0].sunday
-  //   }
-
-  //   $.get(`${__API_URL__}/api/v1/recipes/find/${recipeId}`)
-  //   .then(rawData => {
-  //     console.log(rawData, "error");
-  //     Food.getInstructions(rawData, day);
-  //   })
-  // };
-
-  // Food.getInstructions = (instructions, day) => {
-  //   let steps = [];
-  //   let ingredients = [];
-  //   console.log(instructions, day);
-
-  //   for(let i = 0; i < instructions.length; i++) {
-  //     for(let j = 0; j < instructions[i].steps.length; j++) {
-  //       steps.push(instructions[i].steps[j].step);
-  //       for(let k = 0; k < instructions[i].steps[j].ingredients.length; k++) {
-  //         if(!(ingredients.includes(instructions[i].steps[j].ingredients[k].name))) {
-  //           ingredients.push(instructions[i].steps[j].ingredients[k].name);
-  //         };
-  //       };
-  //     };
-  //   };
-
-  //   app.foodView.appendSteps(steps, day);
-  //   app.foodView.appendIngredients(ingredients, day);
-  // }
-
   Food.users = [];
   Food.currentUserID = undefined;
 
@@ -172,36 +123,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     }
     page('/calendar');
 }
-
-  // Food.validateForm = function(e){
-  //   e.preventDefault();
-  //
-  //   let un = $('#user').val();
-  //   let pw = $('#password').val();
-  //   let usernames= [];
-  //   let passwords = [];
-  //
-  //   for(var i = 0; i< Food.users.length; i++){
-  //
-  //     usernames.push(Food.users[i].username);
-  //
-  //     passwords.push(Food.users[i].password);
-  //
-  //
-  //   }
-  //   if (!!(usernames.includes(un)) && !!(passwords.includes(pw))) {
-  //     Food.currentUserID = Food.users[usernames.indexOf(un)].user_id;
-  //     page('/calendar');
-  //   } else {
-  //       $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val(), id: Food.currentUserID})
-  //       .then(res => Food.currentUserID = res.user_id)
-  //       .then(() => page('/calendar'));
-  //   }
-    // page('/calendar');
-// }
-
-
-
 
   module.Food = Food;
 })(app);
