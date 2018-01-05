@@ -30,7 +30,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     let recNum = selected.charAt(selected.length-1);
     console.log(recNum);
     $.ajax({
-      url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID}/${day}`,
+      url: `${__API_URL__}/api/v1/recipes/${Food.currentUserID.user_id}/${day}`,
       method: 'PUT',
       data: Food.recipeList.hits[recNum].recipe,
     })
@@ -43,7 +43,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
 
   Food.fetchRecipes = (day) => {
-    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID}`)
+    $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID.user_id}`)
     .then(Food.loadRecipe)
     .then(()=> Food.recipeFilter(day));
   };
@@ -144,7 +144,6 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
   Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
 
-
   Food.validateForm = function(e){
     e.preventDefault();
 
@@ -152,6 +151,8 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     let pw = $('#password').val();
     let usernames= [];
     let passwords = [];
+
+    console.log($('#user').val(),$('#password').val());
 
     for(var i = 0; i< Food.users.length; i++){
 
@@ -161,15 +162,43 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
 
 
     }
-    if (!!(usernames.includes(un)) && !!(passwords.includes(pw))) {
-      Food.currentUserID = Food.users[usernames.indexOf(un)].user_id;
-      page('/calendar');
+    if (!!(!!(usernames.includes(un)) && !!(passwords.includes(pw))) && !!(usernames.indexOf(un) === passwords.indexOf(pw))) {
+      $.get(`${__API_URL__}/api/v1/users/id/${$('#user').val()}/${$('#password').val()}`)
+      //.then(res => console.log(res))
+      .then(res => Food.currentUserID = res);
     } else {
         $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val()})
-        .then(() => page('/calendar'));
+        .then(res => Food.currentUserID = res);
     }
-    // page('/calendar');
+    page('/calendar');
 }
+
+  // Food.validateForm = function(e){
+  //   e.preventDefault();
+  //
+  //   let un = $('#user').val();
+  //   let pw = $('#password').val();
+  //   let usernames= [];
+  //   let passwords = [];
+  //
+  //   for(var i = 0; i< Food.users.length; i++){
+  //
+  //     usernames.push(Food.users[i].username);
+  //
+  //     passwords.push(Food.users[i].password);
+  //
+  //
+  //   }
+  //   if (!!(usernames.includes(un)) && !!(passwords.includes(pw))) {
+  //     Food.currentUserID = Food.users[usernames.indexOf(un)].user_id;
+  //     page('/calendar');
+  //   } else {
+  //       $.post(`${__API_URL__}/api/v1/users`, {username: $('#user').val(), password: $('#password').val(), id: Food.currentUserID})
+  //       .then(res => Food.currentUserID = res.user_id)
+  //       .then(() => page('/calendar'));
+  //   }
+    // page('/calendar');
+// }
 
 
 
