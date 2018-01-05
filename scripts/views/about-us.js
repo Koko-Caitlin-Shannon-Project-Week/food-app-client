@@ -10,7 +10,7 @@ function AboutPerson(name, url, bioText) {
 }
 var shannon= new AboutPerson('Shannon', './styles/fonts/images/shannon.jpg', 'Hi, my name is Shannon, and this is my bio. I have a cat and his name is Mr. Kittycat Meowface. I go to school at Code Fellows. I have two roommates and they both work at Pikes Place Market for a produce vender.');
 var koko = new AboutPerson('Koko', './styles/fonts/images/koko.jpg', 'My name is Kowser Kassa but I’ve gone by “Koko” since childhood. I am 23 years old and a student at Code Fellows. I hope to begin a career as a Full-Stack JavaScript devloper and continue to travel the world. I want to explore as much as I can while encouraging young children of color to persue STEM careers.');
-var caitlin = new AboutPerson ('Caitlin', './styles/fonts/images/caitlin.jpg','bio')
+var caitlin = new AboutPerson ('Caitlin', './styles/fonts/images/caitlin.jpg','I want a career that will make a better person out of me. I found that in the Navy, massage therapy, and now I believe I\'ve made the right choice learning web development. My classmates, my future coworkers, have shown me through such amazing dedication and problem solving, I could learn a lot in an environment like this and I love that.');
 var clickCount = 0;
 var lhButton = document.getElementById('left-button');
 var rhButton = document.getElementById('right-button');
