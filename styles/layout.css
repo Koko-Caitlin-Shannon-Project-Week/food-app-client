@@ -2,9 +2,9 @@
 .ingredients {
     padding: .5%;
     text-align: center;
-
 }
 input {
+    color: black;
     display: block;
     text-align: center;
     font-size: 14px;

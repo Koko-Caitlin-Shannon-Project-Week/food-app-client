@@ -7,19 +7,17 @@ button {
     text-align: center;
     font-family: 'Handlee', cursive;
     font-size: 18px;
-    padding: .5%;
+    padding: 1.5%;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
   }
-  
   button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
   }
-  
   button span:after {
     content: '\00bb';
     position: absolute;
@@ -28,17 +26,28 @@ button {
     right: -20px;
     transition: 0.5s;
   }
-  
   button:hover span {
     padding-right: 25px;
   }
-  
   button:hover span:after {
     opacity: 1;
     right: 0;
   }
-
-  
+#mon-update,
+#tues-update,
+#wed-update,
+#thur-update,
+#fri-update,
+#sat-update,
+#sun-update,
+#home,
+#about{
+  background: rgb(148, 28, 19);
+}
+#home,
+#about {
+  font-size: 12px;
+}
   a,
   a :link,
   a :visited,
@@ -54,8 +63,6 @@ button {
     padding-top: 22px;
     padding-left: 12px;
   }
-
-  
   h1 {
     overflow: hidden; 
     border-right: .15em solid rgb(148, 28, 19); 
@@ -74,13 +81,11 @@ button {
     from, to { border-color: transparent }
     50% { border-color: rgb(148, 28, 19); }
   }
-
   h3 {
     overflow: hidden; 
     border-right: .15em solid rgb(148, 28, 19); 
     white-space: nowrap; 
     margin: 0 auto;
-    /* letter-spacing: .15em; */
     animation: 
       typing2 3.5s steps(40, end),
       blink-caret2 .4s step-end 15;
@@ -93,7 +98,6 @@ button {
     from, to { border-color: transparent }
     50% { border-color: rgb(148, 28, 19); }
   }
-
   @media screen and (min-width: 800px) {
     body {
     background-image: url('/styles/fonts/images/bg.png');

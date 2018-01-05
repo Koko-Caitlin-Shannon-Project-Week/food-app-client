@@ -1,5 +1,4 @@
-html, 
-body{
+ body{
     margin: 0;
     background-image: url('/styles/fonts/images/bg.png');
     background-size: contain;
@@ -15,14 +14,12 @@ header,
 .week-view,
 .recipe-view,
 .form-view,
-.about-us{
+.about-us,
+footer {
     background: rgba(182, 53, 36, 0.8);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     padding: 1%;
     margin: 2%;
-}
-h1 {
-    display: inline-block;
 }
 #logo {
     float: left;
@@ -30,16 +27,13 @@ h1 {
 }
 footer {
     -webkit-appearance: none;
-    width: 95.3%;
+    width: 93.5%;
     height: 80px;
     display: inline-block;
     text-align: center;
-    flex-basis: auto;
     background: rgba(182, 53, 36, 0.8);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     padding-left:1%;
-    margin-left:2%;
-    align-self: flex-end;
 } 
 .flex {
   display:flex;

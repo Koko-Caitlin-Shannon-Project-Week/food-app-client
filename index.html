@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cool Foods</title>
-    <link href="./styles/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/normalize.css">
     <link href="./styles/base.css" rel="stylesheet">
     <link href="./styles/layout.css" rel="stylesheet">
     <link href="./styles/modules.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 </head>
 <body class="flex">
-  <div class= "screen-size">
-    <header class="theme">
+    <header class="theme"><a href="/">
         <img id="logo" src="/styles/fonts/images/logo.png" width="10%">
         <h1>Recipeek</h1>
+    </a>
     </header>
     <main class="main theme">
         <div>
@@ -64,7 +64,7 @@
                     <button id="friday">Friday</button>
                     <section class="recipe-friday container">
                             <section class="recipe-friday-section"></section>
-                        <button id="fri-update"><a href="/recipeformfri">Update</a>></button>
+                        <button id="fri-update"><a href="/recipeformfri">Update</a></button>
                     </section>
                 </div>
                 <div>
@@ -85,7 +85,7 @@
         </div>
         <div>
             <section class="form-view container">
-                <h2>Please insert ingredients</h2>
+                <h2>Please insert ingredient</h2>
                 <form class="ingredients">
                     <input name= "first"id="first-ing" placeholder="ingredient" value="">
                     <button type="submit">Find Recipes</button>
@@ -104,11 +104,10 @@
         </div>
     </main>
     <footer class="footer theme">
-        <button><a href="/aboutus">About Us</a></button>
-        <button><a href="/">Home</a></button>
+        <button id="about"><a href="/aboutus">About Us</a></button>
+        <button id="home"><a href="/">Home</a></button>
         <p>&copy; 2018 - Koko Kassa, Shannon Tully and Caitlin Sweeney<p>
     </footer>
-  </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
