@@ -1,6 +1,6 @@
  body{
     margin: 0;
-    background-image: url('/./styles/fonts/images/bg.png');
+    background-image: url('./styles/fonts/images/bg.png');
     background-size: contain;
     color: white;
     font-family: 'Handlee', cursive; 
