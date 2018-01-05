@@ -1,15 +1,19 @@
 html, 
 body{
+    margin: 0;
     background-image: url('/styles/fonts/images/bg.png');
     background-size: contain;
     color: white;
-    font-family: 'Handlee', cursive;  
+    font-family: 'Handlee', cursive; 
+}
+.screen-size{
+  width:100%;
+  min-height: 100%;
 }
 header,
 .login-view,
 .week-view,
 .recipe-view,
-footer,
 .form-view,
 .about-us{
     background: rgba(182, 53, 36, 0.8);
@@ -26,11 +30,16 @@ h1 {
 }
 footer {
     -webkit-appearance: none;
-    width: 93.5%;
-    height: 100px;
+    width: 95.3%;
+    height: 80px;
     display: inline-block;
     text-align: center;
     flex-basis: auto;
+    background: rgba(182, 53, 36, 0.8);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    padding-left:1%;
+    margin-left:2%;
+    align-self: flex-end;
 } 
 .flex {
   display:flex;
