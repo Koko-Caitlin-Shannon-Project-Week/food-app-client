@@ -57,7 +57,7 @@ button {
   }
 
   .week-view {
-    background-image: url('./styles/fonts/images/legal-pad.png');
+    background-image: url('/./styles/fonts/images/legal-pad.png');
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 22px;
