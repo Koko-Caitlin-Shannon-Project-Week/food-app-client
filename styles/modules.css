@@ -100,7 +100,7 @@ button {
   }
   @media screen and (min-width: 800px) {
     body {
-    background-image: url('./styles/fonts/images/bg.png');
+    background-image: url('../styles/fonts/images/bg.png');
     background-size: cover;
     } 
     #logo {
