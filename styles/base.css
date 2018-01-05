@@ -17,8 +17,11 @@ footer,
     padding: 1%;
     margin: 2%;
 }
-h1 {
+/* h1 {
     display: inline-block;
+} */
+header{
+    display: inline-block
 }
 #logo {
     float: left;
