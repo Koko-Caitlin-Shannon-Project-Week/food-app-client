@@ -56,17 +56,13 @@ var __API_URL__ = 'http://localhost:3000';
     } else if (day === 'sunday') {
       recipe = Food.recipes[0].sunday
     }
-
     let parsed = JSON.parse(recipe);
     console.log(recipe);
     console.log(parsed);
-
     let img = parsed.image;
     let title = parsed.label;
     let url = parsed.url;
-
     console.log("img",img,"title",title,"url",url);
-
     app.foodView.appendDay(img, title, url, day);
   };
   Food.users = [];

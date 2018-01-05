@@ -7,7 +7,7 @@ button {
     text-align: center;
     font-family: 'Handlee', cursive;
     font-size: 18px;
-    padding: .5%;
+    padding: 1.5%;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -33,7 +33,6 @@ button {
     opacity: 1;
     right: 0;
   }
-
 #mon-update,
 #tues-update,
 #wed-update,
