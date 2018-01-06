@@ -8,10 +8,12 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
   function Food(rawUser) {
     Object.keys(rawUser).forEach(key => this[key] = rawUser[key]);
   };
+  
   Food.getDefaultRecipe = () => {
     $.get(`${__API_URL__}/api/v1/recipes/search`)
     .then (res => console.log(JSON.parse(res.text)));
   };
+
   Food.getRecipes = (event, day) => {
     event.preventDefault();
     let ing = $('#first-ing').val();
@@ -20,6 +22,7 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     .then (res => JSON.parse(res.text))
     .then (res => app.foodView.appendRecipes(res, day))
   };
+
   Food.selectRecipe = (event, day) => {
     event.preventDefault();
     let selected = event.target.id;
@@ -31,13 +34,15 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
       data: Food.recipeList.hits[recNum].recipe,
     })
     .then (()=> page('/calendar'));
-  }
+  };
+
   Food.recipes= [];
   Food.fetchRecipes = (day) => {
     $.get(`${__API_URL__}/api/v1/recipes/${Food.currentUserID.user_id}`)
     .then(Food.loadRecipe)
     .then(()=> Food.recipeFilter(day));
   };
+
   Food.recipeFilter = day => {
     console.log(Food.recipes[0]);
     let recipe = undefined;
@@ -65,12 +70,15 @@ var __API_URL__ = 'https://cool-food.herokuapp.com';
     console.log("img",img,"title",title,"url",url);
     app.foodView.appendDay(img, title, url, day);
   };
+
   Food.users = [];
   Food.currentUserID = undefined;
-  Food.fetchUsers = callback =>
+  Food.fetchUsers = callback => {
     $.get(`${__API_URL__}/api/v1/users`)
     .then(Food.loadUsers)
-    .then(callback);
+    .then(callback)
+  };
+
   Food.loadUsers = rows => Food.users = rows.map(user => new Food(user));
   Food.loadRecipe = rows => Food.recipes = rows.map(recipes => new Food(recipes));
   Food.validateForm = function(e){
